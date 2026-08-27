@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bmtqvd84uo0ya"]
+
+[ext_resource type="Script" uid="uid://djckord1hh7hk" path="res://Scenes/DebugMap/debug_map.gd" id="1_6lxgn"]
+[ext_resource type="Texture2D" uid="uid://ilsl8rxvu01" path="res://Assets/Debug/Arrows.png" id="2_p82wm"]
+[ext_resource type="Texture2D" uid="uid://cm5xraicp7kkf" path="res://Assets/Debug/Arrows_connections.png" id="3_q17u6"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_03x5g"]
+texture = ExtResource("2_p82wm")
+0:0/0 = 0
+1:0/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+2:1/0 = 0
+1:2/0 = 0
+0:2/0 = 0
+2:2/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pvgv4"]
+texture = ExtResource("3_q17u6")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+2:1/0 = 0
+1:2/0 = 0
+1:1/0 = 0
+2:0/0 = 0
+2:2/0 = 0
+0:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_g4v7s"]
+sources/0 = SubResource("TileSetAtlasSource_03x5g")
+sources/1 = SubResource("TileSetAtlasSource_pvgv4")
+
+[node name="DebugMap" type="Node2D" unique_id=1195151503]
+script = ExtResource("1_6lxgn")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=516090085]
+texture_filter = 1
+tile_set = SubResource("TileSet_g4v7s")

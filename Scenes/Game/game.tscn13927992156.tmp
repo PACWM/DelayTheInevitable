@@ -1,0 +1,42 @@
+[gd_scene format=4 uid="uid://djunwnbgi2ycl"]
+
+[ext_resource type="Script" uid="uid://u3a6evgaqmwc" path="res://Scenes/Game/TilesMapHandler/tiles_map_handler.gd" id="1_qikps"]
+[ext_resource type="PackedScene" uid="uid://bmtqvd84uo0ya" path="res://Scenes/DebugMap/debug_map.tscn" id="2_i1e5p"]
+[ext_resource type="Texture2D" uid="uid://bw2a1jtotjt21" path="res://Assets/walls.png" id="3_ciybh"]
+[ext_resource type="PackedScene" uid="uid://bwx5thox6vgmt" path="res://Scenes/Player/player.tscn" id="4_i1e5p"]
+[ext_resource type="Script" uid="uid://bhdfo4xina4jj" path="res://Scenes/Player/Helper/player_spawn_location.gd" id="5_ciybh"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_l3ax4"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_flgk0"]
+texture = ExtResource("3_ciybh")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_g4v7s"]
+physics_layer_0/collision_layer = 2
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_l3ax4")
+sources/0 = SubResource("TileSetAtlasSource_flgk0")
+
+[node name="Game" type="Node2D" unique_id=175568264]
+
+[node name="TilesMapHandler" type="Node" parent="." unique_id=749154136]
+script = ExtResource("1_qikps")
+
+[node name="DebugMap" parent="TilesMapHandler" unique_id=1195151503 instance=ExtResource("2_i1e5p")]
+visible = false
+
+[node name="Map" type="TileMapLayer" parent="TilesMapHandler" unique_id=1005131905]
+z_index = -1
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAABAAAAAAABAAIAAAABAAAAAAACAAEAAAABAAAAAAAAAAIAAAAAAAAAAAACAAAAAAAAAAAAAAACAAIAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_g4v7s")
+
+[node name="Player" parent="." unique_id=1106717345 instance=ExtResource("4_i1e5p")]
+z_index = 1
+position = Vector2(-1, 0)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=91999225]
+
+[node name="PlayerSpawnLocation" type="Node" parent="Player" unique_id=1235944088]
+script = ExtResource("5_ciybh")

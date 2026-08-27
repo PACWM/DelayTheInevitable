@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c5qjuj71naaxv"]
+
+[ext_resource type="Script" uid="uid://de4mu6ekh8fx2" path="res://Handlers/Settings/settings_data.gd" id="1_dk6e4"]
+
+[node name="SettingsData" type="Node" unique_id=1118168884]
+script = ExtResource("1_dk6e4")
+map_size = 10
+player_speed = 1500
+player_accel = 5.0
+bounce_deficit = 0.6
