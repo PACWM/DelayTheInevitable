@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://cjgy1g2d4icq4"]
 
+[ext_resource type="Script" uid="uid://b84b1rijgkl4d" path="res://Scenes/Main/main.gd" id="1_1r6ip"]
+
 [node name="Main" type="Node" unique_id=2077389615]
 editor_description = "This is the only scene the player will see, things will come and go away from here, but he'll always stay here."
+script = ExtResource("1_1r6ip")
 
 [node name="Control" type="Control" parent="." unique_id=738831680]
 layout_mode = 3

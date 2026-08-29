@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SettingsData="*uid://c5qjuj71naaxv"
+SignalBus="*uid://biv2ylct2kbx7"
 
 [debug]
 
@@ -25,7 +26,6 @@ gdscript/warnings/unused_variable=0
 
 [display]
 
-window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [input]

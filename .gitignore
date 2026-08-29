@@ -1,12 +1,40 @@
 # Godot 4+ specific ignores
 .godot/
-/android/
+.import/
+export.cfg
+export_credentials.cfg
 
-# Temporary files
-*.tmp
-*.tmp.*
-*.tscn.*.tmp
-*.gd.*.tmp
+# Imported translations (automatically generated from CSV files)
+*.translation
 
-# Common editor/OS noise
+# Mono-specific ignores
+.mono/
+data_*/
+mono_crash.*.json
+
+# Build/export output
+export/
+builds/
+*.pck
+*.exe
+*.apk
+*.aab
+*.zip
+
+# System / OS files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editor / IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Log files
 *.log
+
+# Optional: escludi export_presets.cfg se contiene percorsi locali o chiavi di firma
+# export_presets.cfg

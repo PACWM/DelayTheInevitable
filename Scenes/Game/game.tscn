@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://df62drqeypwy0" path="res://Scenes/Map/map.tscn" id="2_i1e5p"]
 [ext_resource type="PackedScene" uid="uid://c4ksv5p8k3dhj" path="res://Scenes/Enemies/enemy_handler.tscn" id="4_ciybh"]
 [ext_resource type="PackedScene" uid="uid://bwx5thox6vgmt" path="res://Scenes/Player/player.tscn" id="4_i1e5p"]
+[ext_resource type="Script" uid="uid://b4fnbsgwbffx8" path="res://Scenes/GUI/Timer/timer_handler.gd" id="5_ciybh"]
 
 [node name="Game" type="Node2D" unique_id=175568264]
 script = ExtResource("1_flgk0")
@@ -25,3 +26,6 @@ offset_bottom = 1046.0
 color = Color(0.6201667, 0.62016684, 0.6201668, 1)
 
 [node name="EnemyHandler" parent="." unique_id=1301706528 instance=ExtResource("4_ciybh")]
+
+[node name="TimerHandler" type="Node" parent="." unique_id=1384527102]
+script = ExtResource("5_ciybh")

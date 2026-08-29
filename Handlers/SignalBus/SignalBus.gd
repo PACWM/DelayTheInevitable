@@ -1,0 +1,10 @@
+##This script is used to send signals only globally, between different windows, not in the same window
+extends Node
+@warning_ignore_start("unused_signal")
+
+#Timer
+signal timeout
+signal time_remaining(float)
+
+#Game
+signal game_started

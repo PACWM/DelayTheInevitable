@@ -1,5 +1,5 @@
 class_name EnemyHandler
-extends Node2D
+extends Node
 
 signal spawn(int)
 signal despawn(int)

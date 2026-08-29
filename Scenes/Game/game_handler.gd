@@ -1,12 +1,15 @@
 class_name GameHandler
 extends Node2D
 
-signal start_game
+
+
 
 @onready var enemy_handler: EnemyHandler = $EnemyHandler
+## Can be used the timer_handler to access the time remaining
+@onready var timer_handler: TimerHandler = $TimerHandler
 
 func _ready() -> void:
-		emit_signal("start_game")
+		SignalBus.game_started.emit()
 		#Poi, con piu nemici, creerò anche un loop che spawna a intervalli irregolari, in posizioni a caso un nemico
 		var id = enemy_handler.spawn_enemy(-1)
 		await get_tree().create_timer(10).timeout
