@@ -19,5 +19,7 @@ extends Node
 #Timer settings
 @export_category("Timer")
 @export var start_time_timer : float = 60.0
-@export var increase_time_for_action : Dictionary[String,float] = {
-}
+@export var increase_time_for_action : Dictionary[String,float] = {}
+@export_group("Events" , "events_")
+@export var events_distance : float = 10.0
+@export var events_random_range : float = 0.0

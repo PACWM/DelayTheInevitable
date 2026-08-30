@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SettingsData="*uid://c5qjuj71naaxv"
 SignalBus="*uid://biv2ylct2kbx7"
+MapGenerator="*uid://cxbioum6g3ik0"
 
 [debug]
 
@@ -27,6 +28,15 @@ gdscript/warnings/unused_variable=0
 [display]
 
 window/stretch/mode="canvas_items"
+
+[file_customization]
+
+folder_colors={
+"res://Assets/": "red",
+"res://Handlers/": "orange",
+"res://Scenes/": "yellow",
+"res://script_templates/": "green"
+}
 
 [input]
 

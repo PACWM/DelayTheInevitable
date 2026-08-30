@@ -1,12 +1,2 @@
-= Player Movement & Physics Tuning (IN STANDBY)
-X Make the maze's corridors bigger
-- Map Foundation: make MapHandler own graph-to-tile generation; keep DebugMap as an optional visualizer only
-- Map Foundation: expose a guaranteed free/start map cell and one logical-cell-to-world-position conversion
-- Game Manager / Run Lifecycle: add a RunManager under Game with run_started, time_changed, and run_ended signals
-- Game Manager / Run Lifecycle: RunManager owns the countdown, add_time(seconds), and end_run(reason)
-- Game Manager / Run Lifecycle: make Timer UI a passive view of RunManager state; use SettingsData.start_time_timer
-- Game Manager / Run Lifecycle (survival timer, Game Over state, credits calculation)
-- Task System (spawn Task Nodes on map points, timer/sanity restoration)
-- First Chasing Entity / Enemy (navigation towards Player, kill condition)
-- Basic Multi-Window UI (Gameplay view, Status & Task timer widget, Taunter window)
-- Game Over Screen & Taunter Dialogues (post-death taunt messages and retry flow)
+- Upgrade MapHandler
+- Create the RunManager for Game

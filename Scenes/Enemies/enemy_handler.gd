@@ -20,17 +20,26 @@ var last_id_used : int = -1
 @onready var player: CharacterBody2D = $"../Player"
 
 ## Picked enemy is taken from the [param ENEMIES_LIST]
-func spawn_enemy(picked_enemy : int = -1) -> int:
+func spawn_enemy(picked_enemy : int = -1 , time_in_game : float = 0.0) -> int:
 	var enemy :Enemy= ENEMIES_LIST[picked_enemy].instantiate()
 	last_id_used += 1
 	enemy.setup(last_id_used , player)
-	connect_signals(enemy)
+	_connect_signals(enemy)
 	add_child(enemy)
 	emit_signal("spawn" , last_id_used)
 	enemies_in_game[last_id_used] = enemy
+	
+	if time_in_game != 0.0:
+		var timer :Timer= Timer.new()
+		timer.one_shot = true
+		timer.autostart = true
+		timer.wait_time = time_in_game
+		timer.timeout.connect(func(): despawn.emit(last_id_used) ; print("eliminato id " , last_id_used))
+		enemy.add_child(timer)
+	
 	return last_id_used
 
-func connect_signals(enemy : Enemy):
+func _connect_signals(enemy : Enemy):
 	spawn.connect(enemy.spawn)
 	despawn.connect(enemy.despawn)
 	freeze.connect(enemy.freeze)

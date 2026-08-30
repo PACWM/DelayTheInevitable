@@ -8,3 +8,4 @@ signal time_remaining(float)
 
 #Game
 signal game_started
+signal game_ended

@@ -3,7 +3,6 @@ extends Node2D
 
 signal ended_generation
 
-var map_generator = MapGenerator.new()
 var map : Array[Array] = []
 
 @onready var tile_map: TileMapLayer = $TileMapLayer
@@ -11,7 +10,7 @@ var map : Array[Array] = []
 
 func _ready() -> void:
 
-	map = map_generator.create_map()
+	map = MapGenerator.get_map()
 	
 	
 	for y in map:

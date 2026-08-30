@@ -1,6 +1,12 @@
 class_name Player
 extends CharacterBody2D
 
+@onready var map : Map = $"../Map"
+
+##TODO : RENDERE IL MOVIMENTO PIU DINAMICO
+
+func _ready() -> void:
+	global_position = _pick_position()
 
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("LEFT","RIGHT","UP","DOWN")
@@ -32,3 +38,9 @@ func _physics_process(delta: float) -> void:
 	)
 	velocity *= result
 	
+func _pick_position()-> Vector2:
+	var graph_pos = MapGenerator.get_start_pos()
+	var map_pos = map.graph_to_map(graph_pos)
+	print("map_pos = " , map_pos)
+
+	return map_pos
