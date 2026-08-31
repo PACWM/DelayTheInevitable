@@ -34,7 +34,7 @@ func spawn_enemy(picked_enemy : int = -1 , time_in_game : float = 0.0) -> int:
 		timer.one_shot = true
 		timer.autostart = true
 		timer.wait_time = time_in_game
-		timer.timeout.connect(func(): despawn.emit(last_id_used) ; print("eliminato id " , last_id_used))
+		timer.timeout.connect(func(): despawn_enemy(last_id_used) ; print("eliminato id " , last_id_used))
 		enemy.add_child(timer)
 	
 	return last_id_used

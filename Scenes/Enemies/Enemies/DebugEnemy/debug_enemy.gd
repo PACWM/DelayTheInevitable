@@ -35,3 +35,4 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 	if stopped == true or not (_body is Player):
 		return
 	print("YOU ARE DEAD UwU")
+	dead_player.emit(self)

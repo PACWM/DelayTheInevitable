@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="WindowResource" format=3 uid="uid://b1q7pkgd4n0u6"]
+
+[ext_resource type="PackedScene" uid="uid://d1ey8rluly21m" path="res://Scenes/GUI/Timer/timer.tscn" id="1_c7xgd"]
+[ext_resource type="Script" uid="uid://he87qkpecem1" path="res://Scenes/GUI/Window/WindowSettingsData/baseplate.gd" id="2_q54aw"]
+
+[resource]
+script = ExtResource("2_q54aw")
+node = ExtResource("1_c7xgd")
+node_window_size = Vector2(200, 100)
+window_name = "Timer"
+window_size = Vector2(110, 100)
+x = 0.5
+can_close = false
+can_minimize = false
+can_move = false
+metadata/_custom_type_script = "uid://he87qkpecem1"

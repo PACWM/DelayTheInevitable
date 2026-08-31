@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 	if timer_time_remaining <= 0:
 		SignalBus.timeout.emit()
 
-func _on_enemy_handler_player_killed(enemy: Enemy) -> void:
+func _on_enemy_handler_player_killed(_enemy: Enemy) -> void:
 	SignalBus.game_ended.emit()
 
 func _on_event_timer_timeout() -> void:

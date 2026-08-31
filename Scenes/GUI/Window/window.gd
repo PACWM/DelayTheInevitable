@@ -20,7 +20,7 @@ func _ready() -> void:
 	sub_viewport.size = window_data.node_window_size
 	size = window_data.window_size
 	window_name.text = window_data.window_name
-	global_position = Vector2(window_data.x,window_data.y) * (get_viewport().get_visible_rect().size - upper_bar.size)
+	global_position = Vector2(window_data.x,window_data.y) * (get_viewport().get_visible_rect().size - size)
 	
 
 func _process(_delta: float) -> void:
@@ -36,3 +36,6 @@ func _on_upper_bar_mouse_entered() -> void:
 
 func _on_upper_bar_mouse_exited() -> void:
 	mouse_upper_bar = false
+
+func close():
+	queue_free()
