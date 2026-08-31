@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://umxitohg3t35"]
+
+[ext_resource type="Script" uid="uid://dud33j2wkx681" path="res://Scenes/GameSection/Tasks/Tasks/DebugTask/debug_task.gd" id="1_y4xoo"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_g4v7s"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(64, 64)
+
+[node name="Task" type="Node2D" unique_id=1273817778]
+script = ExtResource("1_y4xoo")
+time_extra = 20.0
+metadata/_custom_type_script = "uid://drfcg8gpg6e6j"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=396065856]
+texture = SubResource("PlaceholderTexture2D_g4v7s")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1873668102]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=862437361]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

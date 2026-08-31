@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bwx5thox6vgmt"]
+
+[ext_resource type="Script" uid="uid://cituck7xf6v67" path="res://Scenes/GameSection/Player/player.gd" id="1_s0eop"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_g4v7s"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(72, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
+size = Vector2(56, 56)
+
+[node name="Player" type="CharacterBody2D" unique_id=1106717345]
+collision_mask = 2
+motion_mode = 1
+script = ExtResource("1_s0eop")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1574971484]
+texture = SubResource("PlaceholderTexture2D_g4v7s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1544071297]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=644188228]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=2082074275]
+shape = SubResource("RectangleShape2D_yf5fn")
+debug_color = Color(0, 1, 0, 0.41960785)
+
+[node name="KillArea" type="Area2D" parent="." unique_id=360082373]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillArea" unique_id=1029587451]
+shape = SubResource("RectangleShape2D_57qmd")
+debug_color = Color(1, 0, 0, 0.41960785)

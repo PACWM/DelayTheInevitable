@@ -35,6 +35,7 @@ folder_colors={
 "res://Assets/": "red",
 "res://Handlers/": "orange",
 "res://Scenes/": "yellow",
+"res://Scenes/GameSection/": "blue",
 "res://script_templates/": "green"
 }
 
@@ -67,6 +68,7 @@ RIGHT={
 2d_navigation/layer_1="Map"
 2d_physics/layer_2="Map"
 2d_physics/layer_3="GameEnemies"
+2d_physics/layer_4="GameTasks"
 
 [physics]
 

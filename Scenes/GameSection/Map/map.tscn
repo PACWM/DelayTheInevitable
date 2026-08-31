@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://df62drqeypwy0"]
+
+[ext_resource type="Texture2D" uid="uid://bw2a1jtotjt21" path="res://Assets/walls.png" id="1_48hfu"]
+[ext_resource type="Script" uid="uid://dveje5vg3kii4" path="res://Scenes/GameSection/Map/map.gd" id="2_pmx3x"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_jolfa"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jolfa"]
+texture = ExtResource("1_48hfu")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_jolfa")
+
+[sub_resource type="TileSet" id="TileSet_g4v7s"]
+physics_layer_0/collision_layer = 2
+navigation_layer_0/layers = 1
+sources/0 = SubResource("TileSetAtlasSource_jolfa")
+
+[node name="Map" type="TileMapLayer" unique_id=982418698]
+tile_set = SubResource("TileSet_g4v7s")
+script = ExtResource("2_pmx3x")

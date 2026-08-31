@@ -5,6 +5,7 @@ extends Node
 #Timer
 signal timeout
 signal time_remaining(float)
+signal add_time(float)
 
 #Game
 signal game_started
