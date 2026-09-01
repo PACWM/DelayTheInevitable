@@ -1,1 +1,4 @@
-- Ho notato che e' troppo difficile trovare una task in giro. Da fare un puntatore che indichi in che direzione e' la task piu vicina
+- Lavorare sul loop di gioco:
+    [] Post mortem, cioe' piccola animazione, conteggio punti
+    [] Store, con i punti acquisti abilita'
+    [] Pre game , che per ora non e' nulla, ma verra' usata per far partire il gioco in animazione, e scegliere i debuff di questa run
