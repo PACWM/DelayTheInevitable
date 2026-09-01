@@ -12,15 +12,15 @@ var timer_time_remaining : float = SettingsData.start_time_timer
 ##SORPRESA INFAME DA GODOT :P , non si possono vedere nell editor i callable.
 ##
 ## ATTENZIONE A NON SBORDARE DA 1 IN WEIGHT
-var distribution : Dictionary[Callable,Dictionary] = {
-	enemy_handler.spawn_enemy : {"weight" : 0.80 , "params" : [-1,10]},
-	task_handler.spawn_task : {"weight" : 0.20 , "params" : [-1]}
+@onready var distribution : Dictionary[Callable,Dictionary] = {
+	enemy_handler.spawn_enemy : {"weight" : .80 , "params" : [-1,10]},
+	task_handler.spawn_task : {"weight" : .20 , "params" : [-1]}
 }
 
 func _ready() -> void:
 	var events_distance = SettingsData.events_distance
 	var delta = SettingsData.events_random_range
-	event_timer.start(randf_range(events_distance-delta,events_distance+delta))
+	event_timer.start(0.1)
 	SignalBus.add_time.connect(add_time)
 
 func _process(delta: float) -> void:
@@ -41,8 +41,10 @@ func _on_event_timer_timeout() -> void:
 	var choice = randf()
 	for i in distribution:
 		var weight : float = distribution[i]["weight"]
-		if weight > choice:
-			i.call(distribution[i]["params"])
+		if weight >= choice:
+			print(typeof(distribution[i]["params"]))
+			i.call(distribution[i]["params"]) #Invalid type in function 'Node(TaskHandler)::spawn_task (Callable)'. The array of argument 1 (Array) does not have the same element type as the expected typed array argument
+			#Allora, non esiste neanche l' elemento 1...
 			break
 		else:
 			choice -= weight

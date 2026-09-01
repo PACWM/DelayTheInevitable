@@ -20,7 +20,10 @@ var last_id_used : int = -1
 @onready var player: CharacterBody2D = $"../Player"
 
 ## Picked enemy is taken from the [param ENEMIES_LIST]
-func spawn_enemy(picked_enemy : int = -1 , time_in_game : float = 0.0) -> int:
+## args : [picked_enemy:int , time_in_game : float]
+func spawn_enemy(args : Array) -> int:
+	var picked_enemy : int = args[0]
+	var time_in_game : float = args[1]
 	var enemy :Enemy= ENEMIES_LIST[picked_enemy].instantiate()
 	last_id_used += 1
 	enemy.setup(last_id_used , player)

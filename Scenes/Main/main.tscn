@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cjgy1g2d4icq4"]
+
+[ext_resource type="Script" uid="uid://b84b1rijgkl4d" path="res://Scenes/Main/main.gd" id="1_1r6ip"]
+[ext_resource type="Script" uid="uid://he87qkpecem1" path="res://Scenes/Window/WindowSettingsData/baseplate.gd" id="2_p6jpk"]
+[ext_resource type="Resource" uid="uid://cq4wymgqlhent" path="res://Scenes/Window/WindowSettingsData/closeness_indicator.tres" id="3_2a143"]
+[ext_resource type="Resource" uid="uid://b1q7pkgd4n0u6" path="res://Scenes/Window/WindowSettingsData/timer.tres" id="4_xlvfx"]
+[ext_resource type="Resource" uid="uid://c7uw5yhn6r1ck" path="res://Scenes/Window/WindowSettingsData/game.tres" id="5_y3v7k"]
+
+[node name="Main" type="Node" unique_id=301237567]
+script = ExtResource("1_1r6ip")
+game_start_windows = Array[ExtResource("2_p6jpk")]([ExtResource("3_2a143"), ExtResource("4_xlvfx"), ExtResource("5_y3v7k")])
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=849280186]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0.4509804, 1)

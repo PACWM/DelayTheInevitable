@@ -14,8 +14,9 @@ func _ready() -> void:
 	spawn_task()
 
 
-func spawn_task(picked_task : int = -1):
-	var task :Task= TASKS[picked_task].instantiate()
+func spawn_task(picked_task : Array = [-1]):
+
+	var task :Task= TASKS[picked_task[0]].instantiate()
 	add_child(task)
 	task.pick_position(SettingsData.map_size , map.graph_to_map)
 	task.completed.connect(task_completed)
