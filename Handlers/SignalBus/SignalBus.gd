@@ -4,9 +4,12 @@ extends Node
 
 #Timer
 signal timeout
-signal time_remaining(float)
 signal add_time(float)
 
 #Game
 signal game_started
 signal game_ended
+
+#Tasks
+signal task_spawned(Array)
+signal task_removed(Array)

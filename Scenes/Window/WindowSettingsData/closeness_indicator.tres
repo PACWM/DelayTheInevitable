@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="WindowResource" format=3 uid="uid://cq4wymgqlhent"]
+
+[ext_resource type="Script" uid="uid://he87qkpecem1" path="res://Scenes/Window/WindowSettingsData/baseplate.gd" id="1_j0t35"]
+[ext_resource type="PackedScene" uid="uid://c8j22iq2n3f7r" path="res://Scenes/GameSection/GUI/closeness_indicator/closeness_indicator.tscn" id="1_uvrj7"]
+
+[resource]
+script = ExtResource("1_j0t35")
+node = ExtResource("1_uvrj7")
+node_window_size = Vector2(100, 100)
+window_name = "Radar"
+window_size = Vector2(100, 100)
+y = 1.0
+can_close = false
+can_minimize = false
+metadata/_custom_type_script = "uid://he87qkpecem1"

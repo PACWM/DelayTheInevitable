@@ -1,7 +1,6 @@
 class_name TaskHandler
 extends Node
 
-signal task_spawned
 
 const TASKS : Dictionary[int,PackedScene] = {
 	-1 : preload("uid://umxitohg3t35")
@@ -20,14 +19,15 @@ func spawn_task(picked_task : int = -1):
 	add_child(task)
 	task.pick_position(SettingsData.map_size , map.graph_to_map)
 	task.completed.connect(task_completed)
-	task.removed.connect(task_removed)
+	task.removed.connect(_task_removed)
 	
 	print("spawned task " , picked_task)
 	tasks.append(task)
-	emit_signal("task_spawned")
+	SignalBus.task_spawned.emit(tasks)
 	
-func task_removed(task : Task):
+func _task_removed(task : Task):
 	tasks.erase(task)
+	SignalBus.task_removed.emit(tasks)
 
 func task_completed(task : Task):
 	print("Completed task " , task)

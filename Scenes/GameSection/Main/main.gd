@@ -3,10 +3,9 @@ extends Node
 
 const WINDOW = preload("uid://k402fmuxo8ne")
 
-const GAME :WindowResource= preload("uid://c7uw5yhn6r1ck")
-const TIMER = preload("uid://b1q7pkgd4n0u6")
-
 var nodes_to_eliminate : Array[GameWindow]
+
+@export var game_start_windows : Array[WindowResource]
 
 func _ready() -> void:
 	SignalBus.game_started.connect(_start_game)
@@ -16,15 +15,11 @@ func _ready() -> void:
 
 func _start_game():
 	_clear()
-	var game_window :GameWindow= WINDOW.instantiate()
-	game_window.window_data = GAME
-	add_child(game_window)
-	
-	var timer_window : GameWindow = WINDOW.instantiate()
-	timer_window.window_data = TIMER
-	add_child(timer_window)
-	
-	nodes_to_eliminate += [game_window,timer_window]
+	for i in game_start_windows:
+		var window :GameWindow= WINDOW.instantiate()
+		window.window_data = i
+		add_child(window)
+		nodes_to_eliminate.append(window)
 
 func _end_game():
 	_clear()

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://c8j22iq2n3f7r"]
+
+[ext_resource type="Script" uid="uid://culo2ox0flurl" path="res://Scenes/GameSection/GUI/closeness_indicator/closeness_indicator.gd" id="1_gik1x"]
+[ext_resource type="Shader" uid="uid://df5mvmtv80co7" path="res://Scenes/GameSection/GUI/closeness_indicator/closeness_indicator.gdshader" id="1_hwl3v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yf5fn"]
+shader = ExtResource("1_hwl3v")
+shader_parameter/fill = 0.2999999932944
+
+[node name="ClosenessIndicator" type="Node2D" unique_id=819914639]
+script = ExtResource("1_gik1x")
+
+[node name="Bg" type="ColorRect" parent="." unique_id=1590700496]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.36862746, 0, 0.7294118, 1)
+
+[node name="ClosenessImage" type="ColorRect" parent="." unique_id=1853967240]
+material = SubResource("ShaderMaterial_yf5fn")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)

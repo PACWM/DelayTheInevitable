@@ -6,9 +6,10 @@ extends CharacterBody2D
 ##TODO : RENDERE IL MOVIMENTO PIU DINAMICO
 
 func _ready() -> void:
-	global_position = _pick_position()
+	position = _pick_position()
 
 func _physics_process(delta: float) -> void:
+	GlobalVariables.player_position = position
 	var direction = Input.get_vector("LEFT","RIGHT","UP","DOWN")
 	
 	if direction != Vector2.ZERO:

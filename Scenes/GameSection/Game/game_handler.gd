@@ -9,13 +9,23 @@ var timer_time_remaining : float = SettingsData.start_time_timer
 
 @onready var event_timer: Timer = $EventTimer
 
+##SORPRESA INFAME DA GODOT :P , non si possono vedere nell editor i callable.
+##
+## ATTENZIONE A NON SBORDARE DA 1 IN WEIGHT
+var distribution : Dictionary[Callable,Dictionary] = {
+	enemy_handler.spawn_enemy : {"weight" : 0.80 , "params" : [-1,10]},
+	task_handler.spawn_task : {"weight" : 0.20 , "params" : [-1]}
+}
+
 func _ready() -> void:
-	event_timer.start(1)
+	var events_distance = SettingsData.events_distance
+	var delta = SettingsData.events_random_range
+	event_timer.start(randf_range(events_distance-delta,events_distance+delta))
 	SignalBus.add_time.connect(add_time)
 
 func _process(delta: float) -> void:
 	timer_time_remaining -= delta
-	SignalBus.time_remaining.emit(timer_time_remaining)
+	GlobalVariables.time_remaining = timer_time_remaining
 	
 	if timer_time_remaining <= 0:
 		SignalBus.timeout.emit()
@@ -26,15 +36,17 @@ func _on_enemy_handler_player_killed(_enemy: Enemy) -> void:
 func _on_event_timer_timeout() -> void:
 	var events_distance = SettingsData.events_distance
 	var delta = SettingsData.events_random_range
-	event_timer.start(randi_range(events_distance-delta,events_distance+delta))
+	event_timer.start(randf_range(events_distance-delta,events_distance+delta))
 	#Per ora l' evento e' preso a random.
-	var choices = 2
-	var choice = randi() % choices
-	match choice:
-		0:
-			enemy_handler.spawn_enemy(-1,11.0) #spawno per debug il nemico di debug per 11 sec.
-		1:
-			task_handler.spawn_task(-1)
+	var choice = randf()
+	for i in distribution:
+		var weight : float = distribution[i]["weight"]
+		if weight > choice:
+			i.call(distribution[i]["params"])
+			break
+		else:
+			choice -= weight
+	
 
 func add_time(time : float):
 	timer_time_remaining += time

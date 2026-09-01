@@ -10,7 +10,7 @@ signal removed(Task)
 
 func pick_position(map_size : int , graph_to_pos : Callable):
 	var pos = Vector2(randi() % map_size , randi() % map_size) * 2
-	global_position = graph_to_pos.call(pos)
+	position = graph_to_pos.call(pos)
 
 func despawn():
 	removed.emit(self)
